@@ -1,15 +1,28 @@
 # cs-money-pattern-finder
 It finds pattern indexes for weapons on the site csmoney
 
+Here's what all the files do - 
 
-getimages.py = Image downloader for screenshots of every gun you want from the site.
-In line 22: So the if ors here are all the items that you wanna fetch the URLs from, these are in the "o" of this weird json and can be found in a file named "library-en-730.js". Don't ask me how I know this.
+delImages - Deletes all the images from all the subfolders. Please run this BEFORE using the other files.
 
-makeMegaImage.py = crops, resises and combines all images onto one image, stacking them vertically. The cropped images are used in the next file -
+getImages - Downloads the database(json) that contains all items from the site and downloads the screenshots for all the unique weapons you want 
+oList = [1073306,171505] #put in this list all the weapons you want, you can find the numbers for each gun in library-en-730.js
+                  #This is a list of two weapons - Stattrak AWP | WildFire (Factory New) - AWP | Neo-Noir (Factory New) -
 
-ptAdventure.py = Is my adventure with a python lib called tesseract. This processes all images on the crop folder and extracts all text from them, compiling it all on the output.txt file
+processImages - Resizes, crops and concatenates all screenshots into one. You can find a "mega image" that you can use to sanity check the OCR text on the folder \images\resize\crop\megaimage - Otherwise I chose to read each image individually on the next file since it wielded better results
 
-P.S
+readImages - Analises each image and spits out text of what it thinks is on the image. I got this to a 'GOOD' degree of accuracy but it can still mess up, future updates MIGHT (lol no) fix this issue.
 
-I didn't use root folders, for now atleast, so if using this alter the path of each file.
-Sorry.
+zoutput.txt is what it spits out.
+
+This was made in python 3.7.#
+You'll need some stuff to run it:
+
+numpy
+opencv
+shutil
+requests
+json
+pytesseract *
+
+*With this last one needing to download an exe file also from: https://github.com/UB-Mannheim/tesseract/wiki
