@@ -1,3 +1,5 @@
+#Downloads the most up-to-date database from csmoney as well as the images for analisis, who's ids are stored in ids_list that gets em' from the --sids param on the batch file
+
 import json
 import requests
 import shutil
@@ -6,11 +8,12 @@ import numpy
 import os
 import sys
 
+#this stuff shouldn't be global
 dir = os.path.dirname(__file__)
 path_to_file = dir+'\images/'
 path_to_database = dir+'\databases/load_bots_inventory.json'
 
-
+#gets the database from the provided URL. If they change it you should too
 def getDatabase():
 	#downloading the nice, well organized and clean database
 	print("Downloading Database")
@@ -22,6 +25,7 @@ def getDatabase():
 	shutil.copyfileobj(resp.raw, local_file)
 	print("complete")
 
+#Sets the --sids from the batch. This is here just so the program doesn't run with no --sids input
 def setSearchParams(ids_list):
 	#list of 'o' to search
 	#All the items that you wanna fetch the URLs from, these are in the "o" of this weird database and can be found in a file named "library-en-730.js" you can find it on their site.
@@ -31,14 +35,15 @@ def setSearchParams(ids_list):
 		sys.exit("Please use the included .bat file and enter the --sids param")
 	return ids_list
 
+#Recieves a list of sids and downloads every image of every gun on the site.
 def downloadImages(ids_list):
-	
 	#junk lists cuz lazy
 	url = []
 	ids = []
 	urllist = []
 	
 	with open(path_to_database,encoding="utf8") as f:
+		#gets all the data from the json. This is super slow
 		data = json.load(f)
 
 	N = len(data)
@@ -82,6 +87,7 @@ def downloadImages(ids_list):
 		shutil.copyfileobj(resp.raw, local_file)
 		# Remove the image url response object.
 		size = os.path.getsize(path_to_file+file)
+		#you can clearly tell these comments above are not written by me
 		if (size == 0):
 			print("downloading of image #",i," failed - Replacing with image #0")
 			image_url = urllist[0]
@@ -93,6 +99,7 @@ def downloadImages(ids_list):
 			
 	del resp
 
+#jank solution so the main file doesn't insta run when opened. Atleast it's not just a file with one func in it
 def images_main(list):
 	sids = setSearchParams(list)
 	getDatabase()
