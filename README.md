@@ -4,6 +4,8 @@ It finds pattern indexes for weapons on the site csmoney
 Run the "_run_pattern_finder.bat" file with the arg --sids with every unique skin id you want.
 The included .bat file has the --sids arg set to every type of five-seven kami (stattraks and all floats)
 
+you can find skin ids on the included library-en-730.js file. You might (100% will have to) have to download this file since they'll update it with new skins all the time as they get released and added on their site
+
 Here's what all the files do - 
 
 delImages - Deletes all the images from all the subfolders. Please run this BEFORE using the other files.
