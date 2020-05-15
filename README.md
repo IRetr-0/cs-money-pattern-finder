@@ -1,6 +1,9 @@
 # cs-money-pattern-finder
 It finds pattern indexes for weapons on the site csmoney
 
+Run the "_run_pattern_finder.bat" file with the arg --sids with every unique skin id you want.
+The included .bat file has the --sids arg set to every type of five-seven kami (stattraks and all floats)
+
 Here's what all the files do - 
 
 delImages - Deletes all the images from all the subfolders. Please run this BEFORE using the other files.
@@ -20,6 +23,7 @@ zoutput.txt is what it spits out.
 This was made in python 3.7.#
 You'll need some stuff to run it:
 
+argparse
 numpy
 opencv
 shutil
