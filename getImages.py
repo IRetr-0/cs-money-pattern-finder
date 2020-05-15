@@ -22,7 +22,7 @@ print("complete")
 #list of 'o' to search
 #All the items that you wanna fetch the URLs from, these are in the "o" of this weird database and can be found in a file named "library-en-730.js" you can find it on their site.
 #Don't ask me how I know this.
-oList = [1073306]
+oList = [1060,2061,2845,3057,3199,9399]
 
 #junk lists cuz lazy
 url = []
@@ -72,7 +72,6 @@ for i in range (0,len(urllist)):
 	# Copy the response stream raw data to local image file.
 	shutil.copyfileobj(resp.raw, local_file)
 	# Remove the image url response object.
-	print("complete #",i)
 	size = os.path.getsize(path_to_file+file)
 	if (size == 0):
 		print("downloading of image #",i," failed - Replacing with image #0")
@@ -82,6 +81,5 @@ for i in range (0,len(urllist)):
 		local_file = open(path_to_file+file, 'wb')
 		resp.raw.decode_content = True
 		shutil.copyfileobj(resp.raw, local_file)
-		print("complete #",i)
 		
 del resp
