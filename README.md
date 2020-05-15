@@ -6,6 +6,7 @@ Here's what all the files do -
 delImages - Deletes all the images from all the subfolders. Please run this BEFORE using the other files.
 
 getImages - Downloads the database(json) that contains all items from the site and downloads the screenshots for all the unique weapons you want 
+
 oList = [1073306,171505] #put in this list all the weapons you want, you can find the numbers for each gun in library-en-730.js
                   #This is a list of two weapons - Stattrak AWP | WildFire (Factory New) - AWP | Neo-Noir (Factory New) -
 
