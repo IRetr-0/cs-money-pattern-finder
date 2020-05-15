@@ -9,6 +9,16 @@ dir = os.path.dirname(__file__)
 path_to_file = dir+'\images/'
 path_to_database = dir+'\databases/load_bots_inventory.json'
 
+#downloading the nice, well organized and clean database
+print("Downloading Database")
+url = "https://cs.money/730/load_bots_inventory"
+resp = requests.get(url, stream=True)
+file = ''
+local_file = open(path_to_database + file, 'wb')
+resp.raw.decode_content = True
+shutil.copyfileobj(resp.raw, local_file)
+print("complete")
+
 #list of 'o' to search
 #All the items that you wanna fetch the URLs from, these are in the "o" of this weird database and can be found in a file named "library-en-730.js".
 #Don't ask me how I know this.
