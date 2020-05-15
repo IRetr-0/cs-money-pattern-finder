@@ -8,15 +8,15 @@ you can find skin ids on the included library-en-730.js file. You might (100% wi
 
 Here's what all the files do - 
 
-delImages - Deletes all the images from all the subfolders. Please run this BEFORE using the other files.
+delImages - Deletes all the images from all the subfolders.
 
 getImages - Downloads the database(json) that contains all items from the site and downloads the screenshots for all the unique weapons you want 
 
-processImages - Resizes, crops and concatenates all screenshots into one. You can find a "mega image" that you can use to sanity check the OCR text on the folder \images\resize\crop\megaimage - Otherwise I chose to read each image individually on the next file since it wielded better results
+processImages - Resizes, crops and concatenates all screenshots into one. You can find a "mega image" that you can use to sanity check the OCR text on the folder \images\resize\crop\megaimage . I chose to read each image individually on the next file since it got better results
 
 readImages - Analises each image and spits out text of what it thinks is on the image. I got this to a 'GOOD' degree of accuracy but it can still mess up, future updates MIGHT (lol no) fix this issue.
 
-zoutput.txt is what it spits out.
+zoutput.txt is the text that gets spat out.
 
 This was made in python 3.7.#
 You'll need some stuff to run it:
@@ -30,3 +30,4 @@ json
 pytesseract *
 
 *With this last one needing to download an exe file also from: https://github.com/UB-Mannheim/tesseract/wiki
+i might have forgotten to include all dependencies on this short list, sorry if I did.
