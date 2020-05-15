@@ -5,21 +5,29 @@ import cv2
 import numpy
 import os
 
+dir = os.path.dirname(__file__)
+path_to_file = dir+'\images/'
+path_to_database = dir+'\databases/load_bots_inventory.json'
+
+#list of 'o' to search
+#All the items that you wanna fetch the URLs from, these are in the "o" of this weird database and can be found in a file named "library-en-730.js".
+#Don't ask me how I know this.
+oList = [1073306]
 
 #junk lists cuz lazy
 url = []
 ids = []
 urllist = []
 
-with open('D:\Downloads/load_bots_inventory.json',encoding="utf8") as f:
+with open(path_to_database,encoding="utf8") as f:
 	data = json.load(f)
 
 N = len(data)
 
 #inefficiency at it's finest
 for i in range (0,N):
-	try:#So the if ors here are all the items that you wanna fetch the URLs from, these are in the "o" of this weird database and can be found in a file named "library-en-730.js". Don't ask me how I know this.
-		if (data[i]['o'] == 1060 or data[i]['o'] == 2061 or data[i]['o'] == 2845 or data[i]['o'] == 3057 or data[i]['o'] == 3199 or data[i]['o'] == 9399):
+	try:
+		if (data[i]['o'] in oList):
 			#print(data[i]['id'], data[i]['o'], data[i]['d'])
 			ids.append(data[i]['id'])#I never used this again, idk why it's still here.
 			url.append(data[i]['d'])
@@ -37,8 +45,7 @@ for sublist in url:
 for item in flat_list:
 	item = "https://s1.cs.money/" + item + "_image.jpg"
 	urllist.append(item)
-	
-path_to_file = 'D:\\Downloads\\xota/'
+
 
 print("Ammount of images: ",len(urllist))
 #downloading the images, I think this is slow cuz of csmoney, but knowing my code...
