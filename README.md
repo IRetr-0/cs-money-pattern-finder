@@ -7,8 +7,9 @@ delImages - Deletes all the images from all the subfolders. Please run this BEFO
 
 getImages - Downloads the database(json) that contains all items from the site and downloads the screenshots for all the unique weapons you want 
 
-oList = [1073306,171505] #put in this list all the weapons you want, you can find the numbers for each gun in library-en-730.js
-                  #This is a list of two weapons - Stattrak AWP | WildFire (Factory New) - AWP | Neo-Noir (Factory New) -
+  oList = [1073306,171505] 
+  #put in this list all the weapons you want, you can find the numbers for each gun in library-en-730.js
+  #This is a list of two weapons - Stattrak AWP | WildFire (Factory New) - AWP | Neo-Noir (Factory New) -
 
 processImages - Resizes, crops and concatenates all screenshots into one. You can find a "mega image" that you can use to sanity check the OCR text on the folder \images\resize\crop\megaimage - Otherwise I chose to read each image individually on the next file since it wielded better results
 
