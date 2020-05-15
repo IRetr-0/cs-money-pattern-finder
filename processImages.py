@@ -1,6 +1,5 @@
 import json
 import requests
-import shutil
 import cv2
 import pytesseract
 import numpy

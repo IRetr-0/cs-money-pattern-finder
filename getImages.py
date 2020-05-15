@@ -20,7 +20,7 @@ shutil.copyfileobj(resp.raw, local_file)
 print("complete")
 
 #list of 'o' to search
-#All the items that you wanna fetch the URLs from, these are in the "o" of this weird database and can be found in a file named "library-en-730.js".
+#All the items that you wanna fetch the URLs from, these are in the "o" of this weird database and can be found in a file named "library-en-730.js" you can find it on their site.
 #Don't ask me how I know this.
 oList = [1073306]
 
