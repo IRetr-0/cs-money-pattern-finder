@@ -16,14 +16,17 @@ from PIL import Image
 pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
 #it does things
-def read_main():	
+def read_main(patterns_searched):	
+	
+	patterns_found = []
+	found = []
 	
 	DIR = os.path.dirname(__file__)+'/images/resize/crop'
 	path_output = os.path.dirname(__file__)+'/zoutput.txt'
-	N = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
+	n = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
 	text_arr = []
 
-	for i in range (0, N):
+	for i in range (0, n):
 
 		print("Reading image #",i)
 		file = str(i) + 'imageC.jpg'
@@ -32,8 +35,28 @@ def read_main():
 		thresh = cv2.threshold(image, 150, 255, cv2.THRESH_BINARY_INV)[1]
 		text = pytesseract.image_to_string(thresh, config='--psm 11 -c tessedit_char_whitelist=.0123456789')
 		treated_text = text.replace('\n',' ')
+		#isolates the pattern for each line.
+		
+		try:
+			pattern = treated_text.split(' ')[2]
+		#sometimes the OCR fails and pattern comes empty
+		except IndexError:
+			pattern = -1
+		
+		float = treated_text.split(' ')[0]
 		text_arr.append(treated_text)
-
+		if (int(pattern) in patterns_searched and int(pattern) not in patterns_found):
+			patterns_found.append(pattern)
+			found.append(float + '  ' + pattern)
+		
 	with open(path_output, "w") as txt_file:
+		
+		txt_file.write('Patterns found: ')
+		for f in found:
+			txt_file.write('[' + f + ']' + '  ')
+		txt_file.write('\n\n')
+		
 		for line in text_arr:
-			txt_file.write(line+'\n')
+			txt_file.write(line + '\n')
+			
+read_main([909,662])
