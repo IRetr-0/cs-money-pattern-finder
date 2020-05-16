@@ -16,7 +16,7 @@ getImages - Downloads the database(json) that contains all items from the site a
 
 processImages - Resizes, crops and concatenates all screenshots into one. You can find a "mega image" that you can use to sanity check the OCR text on the folder \images\resize\crop\megaimage . I chose to read each image individually on the next file since it got better results
 
-readImages - Analises each image and spits out text of what it thinks is on the image. I got this to a 'GOOD' degree of accuracy but it can still mess up, future updates MIGHT (lol no) fix this issue.
+readImages - Analises each image and spits out text of what it thinks is on the image. I got this to a 'GOOD' degree of accuracy but it can still mess up, future updates MIGHT (lol no) fix this issue. UPDATE, so I kinda did do a wee bit of image processing and I'm pretty sure is 100% accurate now. I got a friend (hostage) working on checking all the data to see if it's good;
 
 zoutput.txt is the text that gets spat out.
 
