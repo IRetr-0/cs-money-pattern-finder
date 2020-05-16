@@ -31,11 +31,21 @@ def read_main(patterns_searched):
 		print("Reading image #",i)
 		file = str(i) + 'imageC.jpg'
 		image = cv2.imread(DIR+'/'+file,0)
+		image = cv2.resize(image, (0,0), fx=2, fy=2)
 		#shitty image processing. I need to add a blur here to improve accuracy
 		thresh = cv2.threshold(image, 150, 255, cv2.THRESH_BINARY_INV)[1]
+		kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3,3))
+		close = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
+		result = cv2.GaussianBlur(close, (5,5), 0)
 		
-		text = pytesseract.image_to_string(thresh, config='--psm 11 -c tessedit_char_whitelist=.0123456789')
-		treated_text = text.replace('\n',' ')
+		text = pytesseract.image_to_string(result, config='--psm 11 -c tessedit_char_whitelist=.0123456789')
+		#nooooooo don't do this =( shitty fix
+		if text[1] != '.':
+			text_fix = text.split('\n')
+			treated_text = text_fix[2] + '  ' + text_fix[0]
+	
+		else:	
+			treated_text = text.replace('\n',' ')
 		#isolates the pattern for each line.
 		
 		try:
