@@ -33,6 +33,7 @@ def read_main(patterns_searched):
 		image = cv2.imread(DIR+'/'+file,0)
 		#shitty image processing. I need to add a blur here to improve accuracy
 		thresh = cv2.threshold(image, 150, 255, cv2.THRESH_BINARY_INV)[1]
+		
 		text = pytesseract.image_to_string(thresh, config='--psm 11 -c tessedit_char_whitelist=.0123456789')
 		treated_text = text.replace('\n',' ')
 		#isolates the pattern for each line.
@@ -58,5 +59,3 @@ def read_main(patterns_searched):
 		
 		for line in text_arr:
 			txt_file.write(line + '\n')
-			
-read_main([909,662])
