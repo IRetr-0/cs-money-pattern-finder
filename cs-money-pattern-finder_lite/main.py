@@ -89,6 +89,7 @@ def downloadImages(ids_list, patterns_searched):
 	
 	path_to_database = os.path.dirname(os.path.abspath(__file__))+'\databases/load_bots_inventory.json'
 	path_to_file = os.path.dirname(os.path.abspath(__file__))+'\images/'
+	path_to_errimg = os.path.dirname(os.path.abspath(__file__))+'\databases/ERROR_CODE_0.jpg'
 	
 	with open(path_to_database,encoding="utf8") as f:
 		#gets all the data from the json. This is super slow
@@ -126,10 +127,8 @@ def downloadImages(ids_list, patterns_searched):
 		image_url = urllist[i]
 		resp = load_image(image_url)
 		if (resp.any() == ERROR):
-			print("downloading of image #",i," failed - Replacing with image #0")
-			image_url = urllist[0]
-			resp = load_image(image_url)
-			
+			print("downloading of image #",i," failed - (0.0000000000 000)")
+			resp = cv2.imread(path_to_errimg)
 			proc_image = process_main(resp)
 			read_main(patterns_searched, proc_image)
 		else:

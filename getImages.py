@@ -8,14 +8,11 @@ import numpy
 import os
 import sys
 
-#this stuff shouldn't be global
-dir = os.path.dirname(__file__)
-path_to_file = dir+'\images/'
-path_to_database = dir+'\databases/load_bots_inventory.json'
-
 #gets the database from the provided URL. If they change it you should too
 def getDatabase():
 	#downloading the nice, well organized and clean database
+	
+	path_to_database = os.path.dirname(__file__)+'\databases/load_bots_inventory.json'
 	print("Downloading Database")
 	url = "https://cs.money/730/load_bots_inventory"
 	resp = requests.get(url, stream=True)
@@ -41,6 +38,10 @@ def downloadImages(ids_list):
 	url = []
 	ids = []
 	urllist = []
+	
+	path_to_file = os.path.dirname(__file__)+'\images/'
+	path_to_database = os.path.dirname(__file__)+'\databases/load_bots_inventory.json'
+	path_to_errimg = os.path.dirname(__file__)+'\databases/ERROR_CODE_0.jpg'
 	
 	with open(path_to_database,encoding="utf8") as f:
 		#gets all the data from the json. This is super slow
@@ -89,13 +90,10 @@ def downloadImages(ids_list):
 		size = os.path.getsize(path_to_file+file)
 		#you can clearly tell these comments above are not written by me
 		if (size == 0):
-			print("downloading of image #",i," failed - Replacing with image #0")
-			image_url = urllist[0]
-			resp = requests.get(image_url, stream=True)
-			file = str(i) + 'image.jpg'
+			print("downloading of image #",i," failed - (0.0000000000 000)")
 			local_file = open(path_to_file+file, 'wb')
-			resp.raw.decode_content = True
-			shutil.copyfileobj(resp.raw, local_file)
+			error_file = open(path_to_errimg, 'rb')
+			shutil.copyfileobj(error_file, local_file)
 			
 	del resp
 
