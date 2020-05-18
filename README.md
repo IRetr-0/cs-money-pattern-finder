@@ -33,3 +33,5 @@ pytesseract *
 
 *With this last one needing to download an exe file also from: https://github.com/UB-Mannheim/tesseract/wiki
 i might have forgotten to include all dependencies on this short list, sorry if I did.
+
+Btw use the 'lite' version of this included with the repo. This version stores a shit load of images and it's mainly use to debug the OCR.
