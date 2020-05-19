@@ -1,6 +1,8 @@
 # cs-money-pattern-finder
 It finds pattern indexes for weapons on the site csmoney
 
+Btw use the 'lite' version of this included with the repo. This version stores a shit load of images and it's mainly use to debug the OCR. Once I'm done with this project (never) I'll delete this 'main' version
+
 Run the "_run_pattern_finder.bat" file with the arg --sids with every unique skin id you want.
 The included .bat file has the --sids arg set to every type of five-seven kami (stattraks and all floats)
 new: --pids, put any patterns you want here and the program will add them to the top of the zoutput.txt file
@@ -33,5 +35,3 @@ pytesseract *
 
 *With this last one needing to download an exe file also from: https://github.com/UB-Mannheim/tesseract/wiki
 i might have forgotten to include all dependencies on this short list, sorry if I did.
-
-Btw use the 'lite' version of this included with the repo. This version stores a shit load of images and it's mainly use to debug the OCR.
