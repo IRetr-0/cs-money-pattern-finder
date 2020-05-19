@@ -25,13 +25,18 @@ zoutput.txt is the text that gets spat out.
 This was made in python 3.7.#
 You'll need some stuff to run it:
 
-argparse
-numpy
-opencv
-shutil
-requests
-json
-pytesseract *
+argparse; 
+os; 
+json; 
+requests; 
+shutil; 
+cv2; 
+numpy; 
+os; 
+sys; 
+PIL - Image; 
+io - BytesIO; 
+pytesseract *; 
 
 *With this last one needing to download an exe file also from: https://github.com/UB-Mannheim/tesseract/wiki
 i might have forgotten to include all dependencies on this short list, sorry if I did.
