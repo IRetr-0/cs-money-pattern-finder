@@ -1,7 +1,7 @@
 # cs-money-pattern-finder
 It finds pattern indexes for weapons on the site csmoney
 
-Btw use the 'lite' version of this included with the repo. This version stores a shit load of images and it's mainly use to debug the OCR. Once I'm done with this project (never) I'll delete this 'main' version
+PLEASE use the 'lite' version of this included with the repo. This version stores a shit load of images and it's mainly use to debug the OCR. Once I'm done with this project (never) I'll delete this 'main' version
 
 Run the "_run_pattern_finder.bat" file with the arg --sids with every unique skin id you want.
 The included .bat file has the --sids arg set to every type of five-seven kami (stattraks and all floats)
