@@ -56,7 +56,7 @@ def read_main(patterns_searched):
 		
 		float = treated_text.split(' ')[0]
 		text_arr.append(treated_text)
-		if (int(pattern) in patterns_searched and int(pattern) not in patterns_found):
+		if (int(pattern) in patterns_searched):
 			patterns_found.append(pattern)
 			found.append(float + '  ' + pattern)
 		
