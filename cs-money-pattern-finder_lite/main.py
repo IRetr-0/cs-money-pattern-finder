@@ -191,8 +191,8 @@ def read_main(patterns_searched, image):
 	float = treated_text.split(' ')[0]#the float value is in the 0 and the pattern value is in the 2. 1 is just empty space
 	text_arr.append(treated_text)
 	#ok more "dumb solutions"
-	#If the pattern the user searched for is present and it hasn't been already added, add it.
-	if (int(pattern) in patterns_searched and int(pattern) not in patterns_found):
+	#If the pattern the user searched for is present, add it.
+	if (int(pattern) in patterns_searched):
 		patterns_found.append(pattern)
 		found.append(float + '  ' + pattern)
 
