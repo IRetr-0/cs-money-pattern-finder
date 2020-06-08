@@ -41,4 +41,4 @@ io - BytesIO;
 pytesseract *; 
 
 *With this last one needing to download an exe file also from: https://github.com/UB-Mannheim/tesseract/wiki
-i might have forgotten to include all dependencies on this short list, sorry if I did.
+i might have forgotten to include all dependencies on this short list.
