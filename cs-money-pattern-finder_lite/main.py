@@ -52,8 +52,8 @@ def load_image(url):
 	try:
 		img_arr = numpy.array(Image.open(BytesIO(res.content)))
 	except OSError:
-		x = numpy.arange(1)
-		return x
+		err = numpy.arange(1)
+		return err
 	return img_arr
 
 #gets the database from the provided URL. If they change it you should too
