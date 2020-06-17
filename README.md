@@ -1,3 +1,8 @@
+-THIS IS BORKEN AS OF 06/17/2020- The GREAT PEOPLE at cs money decided to remove the screenshot feature (for now idk??)
+So the script can't get the image URLS since, you know, they don't fkin exist anymore.
+
+If it unbreaks I'll update the repo
+
 # cs-money-pattern-finder
 It finds pattern indexes for weapons on the site csmoney
 
