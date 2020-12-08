@@ -2,8 +2,13 @@
 
 -OUTDATED-
 -USELESS-
-
+READ THIS FOR BASIC EXPLANATION OF WHY THIS SUX:
 https://github.com/IRetr-0/cs-money-pattern-finder/issues/6
+
+
+
+
+
 
 It finds pattern indexes for weapons on the site csmoney
 
