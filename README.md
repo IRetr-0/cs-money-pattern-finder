@@ -1,4 +1,10 @@
 # cs-money-pattern-finder
+
+-OUTDATED-
+-USELESS-
+
+https://github.com/IRetr-0/cs-money-pattern-finder/issues/6
+
 It finds pattern indexes for weapons on the site csmoney
 
 For some reason the smart guys over a csmoney have the pattern index value listed in images for all skins, but not on the database as text??? This is a convoluted way of getting those values.
